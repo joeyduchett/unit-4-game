@@ -3,7 +3,6 @@
 
   $('#randomNumber').text(random);
 
-
   let num1 = Math.floor(Math.random() * 11 + 1);
   let num2 = Math.floor(Math.random() * 11 + 1);
   let num3 = Math.floor(Math.random() * 11 + 1);
@@ -17,12 +16,18 @@
  
   $('#numberWins').text(wins);
   $('#numberLosses').text(losses);
+  // $('#totalNum').text(userTotal);
 
    
   function reset() {
     random = Math.floor(Math.random() * 101 + 19);
     console.log(random);
     $('#randomNumber').text(random);
+    $('#totalNum').text(0);
+    $('#dravenNum').text('?');
+    $('#jinxNum').text('?');
+    $('#mpenguNum').text('?'); 
+    $('#ziggsNum').text('?');
     num1 = Math.floor(Math.random() * 11 + 1);
     num2 = Math.floor(Math.random() * 11 + 1);
     num3 = Math.floor(Math.random() * 11 + 1);
@@ -49,6 +54,9 @@
 
 
   $('#draven').on('click', function () {
+    $('#dravenNum').text(num1);
+    $('#totalNum').text(userTotal + num1);
+    console.log('userTotal:',userTotal)
     userTotal = userTotal + num1;
     console.log("newUserTotal= " + userTotal);
    
@@ -63,6 +71,8 @@
   });
 
   $('#jinx').on('click', function () {
+    $('#jinxNum').text(num2);
+    $('#totalNum').text(userTotal + num2);
     userTotal = userTotal + num2;
     console.log("newUserTotal= " + userTotal);
     $('#finalTotal').text(userTotal);
@@ -76,6 +86,8 @@
   });
 
   $('#mpengu').on('click', function () {
+    $('#mpenguNum').text(num3);
+    $('#totalNum').text(userTotal + num3);
     userTotal = userTotal + num3;
     console.log("newUserTotal= " + userTotal);
     $('#finalTotal').text(userTotal);
@@ -89,6 +101,8 @@
   });
 
   $('#ziggs').on('click', function () {
+    $('#totalNum').text(userTotal + num4);
+    $('#ziggsNum').text(num4);
     userTotal = userTotal + num4;
     console.log("newUserTotal= " + userTotal);
     $('#finalTotal').text(userTotal);
